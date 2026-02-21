@@ -18,4 +18,4 @@ def gfg():
     return render_template("form.html")
 
 if __name__ == "__main__":
-    app.run(port=8083)
+    app.run()

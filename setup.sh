@@ -3,4 +3,4 @@
 export FLASK_APP=web
 export FLASK_ENV=development
 
-flask run
+flask run -h 0.0.0.0 -p 8083
