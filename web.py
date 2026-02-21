@@ -5,7 +5,7 @@ import eldritchify as e
 app = Flask(__name__)
 
 
-@app.route('/eldritchify', methods=["GET", "POST"])
+@app.route('/', methods=["GET", "POST"])
 def gfg():
     if request.method == "POST":
         # getting input with name = "user_input" in HTML form
@@ -18,4 +18,4 @@ def gfg():
     return render_template("form.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=8083)
