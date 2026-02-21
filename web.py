@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, jsonify
 
 import eldritchify as e
 
@@ -8,15 +8,13 @@ app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def gfg():
     try:
-        if request.method == "POST":
-            # getting input with name = "user_input" in HTML form
-            user_text = request.form.get("user_input")
+        data = request.json
+        text = data.get('text', '')
 
-            processed_text = e.curseText(user_text)
-            return render_template("form.html", result=processed_text)
+        result = e.curseText(text)
 
-        # For GET request, render the form page
-        return render_template("form.html")
+        return jsonify({'result': result})
+
     except:
         return ""
 
